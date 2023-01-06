@@ -8,23 +8,20 @@ import java.util.Objects;
 public final class Configuration {
 
     private String language;
-    private boolean overrideFirstSpawn;
     private boolean joinAtSpawn;
     private boolean respawnAtSpawn;
 
     private String pluginVersion;
 
     public Configuration(String pluginVersion) {
-        this(Locale.getDefault().toString(), true, true, true, pluginVersion);
+        this(Locale.getDefault().toString(), true, true, pluginVersion);
     }
 
     public Configuration(@NotNull String language,
-                         boolean overrideFirstSpawn,
                          boolean joinAtSpawn,
                          boolean respawnAtSpawn,
                          @NotNull String pluginVersion) {
         this.language = language;
-        this.overrideFirstSpawn = overrideFirstSpawn;
         this.joinAtSpawn = joinAtSpawn;
         this.respawnAtSpawn = respawnAtSpawn;
         this.pluginVersion = pluginVersion;
@@ -37,14 +34,6 @@ public final class Configuration {
 
     public void setLanguage(@NotNull String language) {
         this.language = language;
-    }
-
-    public boolean isOverrideFirstSpawn() {
-        return overrideFirstSpawn;
-    }
-
-    public void setOverrideFirstSpawn(boolean overrideFirstSpawn) {
-        this.overrideFirstSpawn = overrideFirstSpawn;
     }
 
     public boolean isJoinAtSpawn() {
@@ -76,7 +65,6 @@ public final class Configuration {
     public String toString() {
         return "Configuration{" +
                 "language='" + language + '\'' +
-                ", overrideFirstSpawn=" + overrideFirstSpawn +
                 ", overrideSpawnLocation=" + joinAtSpawn +
                 ", overrideRespawnLocation=" + respawnAtSpawn +
                 ", pluginVersion='" + pluginVersion + '\'' +
@@ -87,8 +75,6 @@ public final class Configuration {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Configuration that)) return false;
-
-        if (overrideFirstSpawn != that.overrideFirstSpawn) return false;
         if (joinAtSpawn != that.joinAtSpawn) return false;
         if (respawnAtSpawn != that.respawnAtSpawn) return false;
         if (!Objects.equals(language, that.language)) return false;
@@ -98,7 +84,6 @@ public final class Configuration {
     @Override
     public int hashCode() {
         int result = language != null ? language.hashCode() : 0;
-        result = 31 * result + (overrideFirstSpawn ? 1 : 0);
         result = 31 * result + (joinAtSpawn ? 1 : 0);
         result = 31 * result + (respawnAtSpawn ? 1 : 0);
         result = 31 * result + (pluginVersion != null ? pluginVersion.hashCode() : 0);
