@@ -26,7 +26,6 @@ public final class SpawnLocationListener implements Listener {
     public void handlePlayerSpawnLocation(PlayerSpawnLocationEvent event) {
         try {
             if (this.plugin.getConfigurationService().getConfig().isJoinAtSpawn()) {
-                if (this.plugin.getConfigurationService().getConfig().isOverrideFirstSpawn() && event.getPlayer().hasPlayedBefore()) return;
                 SpawnPosition spawnPosition = this.plugin.getSpawnPositionService().getDefaultSpawn().get();
                 Location location = WrappedLocation.toLocation(spawnPosition.getWrappedLocation());
                 if (location == null) return;
