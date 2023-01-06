@@ -28,12 +28,10 @@ public final class PluginCommands {
         String prefix = this.languageService.getPluginPrefix();
         String language = this.plugin.getConfigurationService().getConfig().getLanguage();
         boolean joinAtSpawn = this.plugin.getConfigurationService().getConfig().isJoinAtSpawn();
-        boolean overrideFirstSpawn = this.plugin.getConfigurationService().getConfig().isOverrideFirstSpawn();
         boolean respawnAtSpawn = this.plugin.getConfigurationService().getConfig().isRespawnAtSpawn();
 
         commandSender.sendMessage(MessageUtil.translateLegacyColorCodes("%s &7Language: &6%s".formatted(prefix, language)));
         commandSender.sendMessage(MessageUtil.translateLegacyColorCodes("%s &7Join at Spawn: &6%s".formatted(prefix, joinAtSpawn)));
-        commandSender.sendMessage(MessageUtil.translateLegacyColorCodes("%s &7Override First Spawn: &6%s".formatted(prefix, overrideFirstSpawn)));
         commandSender.sendMessage(MessageUtil.translateLegacyColorCodes("%s &7Respawn at Spawn: &6%s".formatted(prefix, respawnAtSpawn)));
     }
 
