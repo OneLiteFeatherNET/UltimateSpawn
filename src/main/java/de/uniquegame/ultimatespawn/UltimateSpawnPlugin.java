@@ -9,6 +9,10 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.logging.Level;
+
 public final class UltimateSpawnPlugin extends JavaPlugin {
 
     private SpawnPositionService spawnPositionService;
@@ -20,6 +24,17 @@ public final class UltimateSpawnPlugin extends JavaPlugin {
     public void onEnable() {
 
         PluginManager pluginManager = getServer().getPluginManager();
+        var dataFolder = getDataFolder();
+        if(Files.notExists(dataFolder.toPath())) {
+            try {
+                Files.createDirectory(dataFolder.toPath());
+            } catch (IOException e) {
+                getLogger().log(Level.SEVERE, "Cannot create plugin folder!");
+                pluginManager.disablePlugin(this);
+                return;
+            }
+        }
+
         this.configurationService = new ConfigurationService(this);
         this.languageService = new LanguageService(this);
         this.commandService = new CommandService(this);
