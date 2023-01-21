@@ -22,5 +22,5 @@ jobs:
       - name: Archive jar file
         uses: actions/upload-artifact@v3
         with:
-          name: ChestSort
-          path: build/libs/ChestSort.jar
+          name: UltimateSpawn
+          path: build/libs/UltimateSpawn.jar
