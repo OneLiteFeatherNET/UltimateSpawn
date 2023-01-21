@@ -1,6 +1,5 @@
 # UltimateSpawn
 [![Run Gradle on Tags and Master](https://github.com/UniqueGame/UltimateSpawn/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/UniqueGame/UltimateSpawn/actions/workflows/build.yaml)
-![GitHub](https://img.shields.io/github/license/UniqueGame/UltimateSpawn)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/UniqueGame/UltimateSpawn?sort=semver)
 
 
