@@ -29,7 +29,7 @@ public final class RemoveSpawnCommand {
     }
 
     @CommandMethod("removespawn <name>")
-    @CommandPermission("ultimatespawn.command.setspawn")
+    @CommandPermission("ultimatespawn.command.removespawn")
     @CommandDescription("Remove a spawn position")
     public void execute(Player player,
                         @NotNull
