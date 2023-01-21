@@ -1,0 +1,26 @@
+name: Run Gradle on Tags and Master
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+jobs:
+  gradle:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Execute Gradle build
+        run: gradle jar
+
+      - name: Archive jar file
+        uses: actions/upload-artifact@v3
+        with:
+          name: ChestSort
+          path: build/libs/ChestSort.jar
