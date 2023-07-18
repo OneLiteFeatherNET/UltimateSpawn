@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "de.theshadowsdust"
-version = "1.0.0-RELEASE"
+version = "2.0.0-RELEASE"
 
 repositories {
     mavenCentral()
