@@ -48,7 +48,7 @@ paper {
     author = "theShadowsDust"
 
     main = "de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin"
-    bootstrapper = "de.theshadowsdust.essentials.UltimateSpawnPluginBootstrap"
+    bootstrapper = "de.theshadowsdust.ultimatespawn.UltimateSpawnPluginBootstrap"
     hasOpenClassloader = false
 
     generateLibrariesJson = true
