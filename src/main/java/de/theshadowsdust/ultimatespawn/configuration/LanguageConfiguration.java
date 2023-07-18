@@ -1,4 +1,4 @@
-package de.uniquegame.ultimatespawn.configuration;
+package de.theshadowsdust.ultimatespawn.configuration;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;

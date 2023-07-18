@@ -1,4 +1,4 @@
-package de.uniquegame.ultimatespawn.service;
+package de.theshadowsdust.ultimatespawn.service;
 
 import cloud.commandframework.annotations.AnnotationParser;
 import cloud.commandframework.arguments.parser.ParserParameters;
@@ -8,11 +8,11 @@ import cloud.commandframework.execution.CommandExecutionCoordinator;
 import cloud.commandframework.meta.CommandMeta;
 import cloud.commandframework.minecraft.extras.MinecraftHelp;
 import cloud.commandframework.paper.PaperCommandManager;
-import de.uniquegame.ultimatespawn.UltimateSpawnPlugin;
-import de.uniquegame.ultimatespawn.command.PluginCommands;
-import de.uniquegame.ultimatespawn.command.RemoveSpawnCommand;
-import de.uniquegame.ultimatespawn.command.SetSpawnCommand;
-import de.uniquegame.ultimatespawn.command.SpawnCommand;
+import de.theshadowsdust.ultimatespawn.command.SpawnCommand;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
+import de.theshadowsdust.ultimatespawn.command.PluginCommands;
+import de.theshadowsdust.ultimatespawn.command.RemoveSpawnCommand;
+import de.theshadowsdust.ultimatespawn.command.SetSpawnCommand;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;

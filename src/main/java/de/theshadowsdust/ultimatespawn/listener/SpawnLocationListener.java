@@ -1,8 +1,8 @@
-package de.uniquegame.ultimatespawn.listener;
+package de.theshadowsdust.ultimatespawn.listener;
 
-import de.uniquegame.ultimatespawn.UltimateSpawnPlugin;
-import de.uniquegame.ultimatespawn.position.SpawnPosition;
-import de.uniquegame.ultimatespawn.position.WrappedLocation;
+import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
+import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

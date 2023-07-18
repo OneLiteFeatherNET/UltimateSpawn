@@ -1,4 +1,4 @@
-package de.uniquegame.ultimatespawn.util;
+package de.theshadowsdust.ultimatespawn.util;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;

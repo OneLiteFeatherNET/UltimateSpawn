@@ -1,13 +1,13 @@
-package de.uniquegame.ultimatespawn.command;
+package de.theshadowsdust.ultimatespawn.command;
 
 import cloud.commandframework.annotations.Argument;
 import cloud.commandframework.annotations.CommandDescription;
 import cloud.commandframework.annotations.CommandMethod;
 import cloud.commandframework.annotations.CommandPermission;
 import cloud.commandframework.annotations.specifier.Greedy;
-import de.uniquegame.ultimatespawn.UltimateSpawnPlugin;
-import de.uniquegame.ultimatespawn.service.LanguageService;
-import de.uniquegame.ultimatespawn.util.MessageUtil;
+import de.theshadowsdust.ultimatespawn.service.LanguageService;
+import de.theshadowsdust.ultimatespawn.util.MessageUtil;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
