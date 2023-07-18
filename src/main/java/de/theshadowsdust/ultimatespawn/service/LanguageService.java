@@ -1,8 +1,8 @@
-package de.uniquegame.ultimatespawn.service;
+package de.theshadowsdust.ultimatespawn.service;
 
-import de.uniquegame.ultimatespawn.UltimateSpawnPlugin;
-import de.uniquegame.ultimatespawn.configuration.LanguageConfiguration;
-import de.uniquegame.ultimatespawn.util.MessageUtil;
+import de.theshadowsdust.ultimatespawn.configuration.LanguageConfiguration;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
+import de.theshadowsdust.ultimatespawn.util.MessageUtil;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.util.UTF8ResourceBundleControl;
 import org.apache.commons.lang3.LocaleUtils;

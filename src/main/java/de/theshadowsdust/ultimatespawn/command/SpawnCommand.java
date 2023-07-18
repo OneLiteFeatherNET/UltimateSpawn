@@ -1,4 +1,4 @@
-package de.uniquegame.ultimatespawn.command;
+package de.theshadowsdust.ultimatespawn.command;
 
 import cloud.commandframework.annotations.Argument;
 import cloud.commandframework.annotations.CommandDescription;
@@ -7,10 +7,10 @@ import cloud.commandframework.annotations.CommandPermission;
 import cloud.commandframework.annotations.specifier.Greedy;
 import cloud.commandframework.annotations.suggestions.Suggestions;
 import cloud.commandframework.context.CommandContext;
-import de.uniquegame.ultimatespawn.UltimateSpawnPlugin;
-import de.uniquegame.ultimatespawn.position.SpawnPosition;
-import de.uniquegame.ultimatespawn.position.WrappedLocation;
-import de.uniquegame.ultimatespawn.service.LanguageService;
+import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
+import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
+import de.theshadowsdust.ultimatespawn.service.LanguageService;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

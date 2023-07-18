@@ -1,10 +1,10 @@
-package de.uniquegame.ultimatespawn;
+package de.theshadowsdust.ultimatespawn;
 
-import de.uniquegame.ultimatespawn.listener.SpawnLocationListener;
-import de.uniquegame.ultimatespawn.service.CommandService;
-import de.uniquegame.ultimatespawn.service.ConfigurationService;
-import de.uniquegame.ultimatespawn.service.LanguageService;
-import de.uniquegame.ultimatespawn.service.SpawnPositionService;
+import de.theshadowsdust.ultimatespawn.listener.SpawnLocationListener;
+import de.theshadowsdust.ultimatespawn.service.CommandService;
+import de.theshadowsdust.ultimatespawn.service.ConfigurationService;
+import de.theshadowsdust.ultimatespawn.service.LanguageService;
+import de.theshadowsdust.ultimatespawn.service.SpawnPositionService;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;

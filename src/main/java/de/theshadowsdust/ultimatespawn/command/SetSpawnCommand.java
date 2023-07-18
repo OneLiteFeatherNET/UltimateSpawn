@@ -1,8 +1,8 @@
-package de.uniquegame.ultimatespawn.command;
+package de.theshadowsdust.ultimatespawn.command;
 
 import cloud.commandframework.annotations.*;
-import de.uniquegame.ultimatespawn.UltimateSpawnPlugin;
-import de.uniquegame.ultimatespawn.service.LanguageService;
+import de.theshadowsdust.ultimatespawn.service.LanguageService;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

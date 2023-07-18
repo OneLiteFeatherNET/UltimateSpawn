@@ -1,4 +1,4 @@
-package de.uniquegame.ultimatespawn.position;
+package de.theshadowsdust.ultimatespawn.position;
 
 import org.jetbrains.annotations.NotNull;
 

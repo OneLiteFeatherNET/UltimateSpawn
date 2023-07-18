@@ -1,9 +1,9 @@
-package de.uniquegame.ultimatespawn.service;
+package de.theshadowsdust.ultimatespawn.service;
 
-import de.uniquegame.ultimatespawn.UltimateSpawnPlugin;
-import de.uniquegame.ultimatespawn.position.SpawnPosition;
-import de.uniquegame.ultimatespawn.position.WrappedLocation;
-import de.uniquegame.ultimatespawn.util.Constants;
+import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
+import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
+import de.theshadowsdust.ultimatespawn.util.Constants;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;

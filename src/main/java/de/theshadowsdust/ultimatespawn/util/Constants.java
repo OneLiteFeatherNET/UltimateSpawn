@@ -1,4 +1,4 @@
-package de.uniquegame.ultimatespawn.util;
+package de.theshadowsdust.ultimatespawn.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

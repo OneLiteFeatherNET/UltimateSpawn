@@ -1,8 +1,8 @@
-package de.uniquegame.ultimatespawn.service;
+package de.theshadowsdust.ultimatespawn.service;
 
-import de.uniquegame.ultimatespawn.UltimateSpawnPlugin;
-import de.uniquegame.ultimatespawn.configuration.Configuration;
-import de.uniquegame.ultimatespawn.util.Constants;
+import de.theshadowsdust.ultimatespawn.configuration.Configuration;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
+import de.theshadowsdust.ultimatespawn.util.Constants;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
