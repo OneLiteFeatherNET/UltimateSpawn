@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "de.theshadowsdust"
-version = "2.0.0-RELEASE"
+version = "1.1.0-RELEASE"
 
 repositories {
     mavenCentral()
@@ -48,11 +48,10 @@ paper {
     author = "theShadowsDust"
 
     main = "de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin"
-    bootstrapper = "de.theshadowsdust.ultimatespawn.UltimateSpawnPluginBootstrap"
     hasOpenClassloader = false
 
-    generateLibrariesJson = true
-    foliaSupported = true
+    generateLibrariesJson = false
+    foliaSupported = false
     apiVersion = "1.20"
     load = BukkitPluginDescription.PluginLoadOrder.POSTWORLD
 }
