@@ -1,7 +1,7 @@
 package de.theshadowsdust.ultimatespawn.service;
 
-import de.theshadowsdust.ultimatespawn.configuration.Configuration;
 import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
+import de.theshadowsdust.ultimatespawn.configuration.Configuration;
 import de.theshadowsdust.ultimatespawn.util.Constants;
 import org.jetbrains.annotations.NotNull;
 
@@ -84,8 +84,9 @@ public class ConfigurationService {
     }
 
     @NotNull
+    @SuppressWarnings("UnstableApiUsage")
     private String getPluginVersion() {
-        String version = this.plugin.getDescription().getVersion();
+        String version = this.plugin.getPluginMeta().getVersion();
         String versionSplitter = "-";
         if (version.contains(versionSplitter)) {
             version = version.split(versionSplitter)[0];
