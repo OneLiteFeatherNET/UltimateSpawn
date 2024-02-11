@@ -4,11 +4,13 @@ import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
 import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
 import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.spigotmc.event.player.PlayerSpawnLocationEvent;
 
 import java.util.concurrent.ExecutionException;
@@ -24,12 +26,15 @@ public final class SpawnLocationListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void handlePlayerSpawnLocation(PlayerSpawnLocationEvent event) {
+        Player player = event.getPlayer();
         try {
-            if (this.plugin.getConfigurationService().getConfig().isJoinAtSpawn()) {
-                SpawnPosition spawnPosition = this.plugin.getSpawnPositionService().getDefaultSpawn().get();
-                Location location = WrappedLocation.toLocation(spawnPosition.getWrappedLocation());
-                if (location == null) return;
-                event.setSpawnLocation(location);
+            if(!player.hasPlayedBefore()) {
+                event.setSpawnLocation(player.getWorld().getSpawnLocation());
+            }
+            else {
+                if (this.plugin.getConfigurationService().getConfig().isJoinAtSpawn()) {
+                   getLocation();
+                }
             }
         } catch (ExecutionException | InterruptedException e) {
             this.plugin.getLogger().log(Level.SEVERE, "Cannot set spawn location", e);
@@ -41,8 +46,7 @@ public final class SpawnLocationListener implements Listener {
     public void handlePlayerRespawnLocation(PlayerRespawnEvent event) {
         if (!this.plugin.getConfigurationService().getConfig().isRespawnAtSpawn()) return;
         try {
-            SpawnPosition spawnPosition = this.plugin.getSpawnPositionService().getDefaultSpawn().get();
-            Location location = WrappedLocation.toLocation(spawnPosition.getWrappedLocation());
+            Location location = getLocation();
             if (location == null) return;
             event.setRespawnLocation(location);
         } catch (ExecutionException | InterruptedException e) {
@@ -51,4 +55,10 @@ public final class SpawnLocationListener implements Listener {
             Thread.currentThread().interrupt();
         }
     }
+
+    private @Nullable Location getLocation() throws InterruptedException, ExecutionException {
+        SpawnPosition spawnPosition = this.plugin.getSpawnPositionService().getDefaultSpawn().get();
+        return WrappedLocation.toLocation(spawnPosition.getWrappedLocation());
+    }
+
 }
