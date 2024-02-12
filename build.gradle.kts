@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
-    implementation("cloud.commandframework", "cloud-paper", "1.8.3")
+    implementation("cloud.commandframework", "cloud-paper", "1.8.4")
     implementation("cloud.commandframework", "cloud-annotations", "1.8.3")
     implementation("cloud.commandframework", "cloud-minecraft-extras", "1.8.3")
     implementation("org.apache.commons:commons-lang3:3.12.0")
