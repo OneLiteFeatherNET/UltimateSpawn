@@ -1,5 +1,6 @@
 package de.theshadowsdust.ultimatespawn.listener;
 
+import de.theshadowsdust.ultimatespawn.configuration.Configuration;
 import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
 import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
 import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
@@ -20,6 +21,7 @@ public final class SpawnLocationListener implements Listener {
 
     private final UltimateSpawnPlugin plugin;
 
+
     public SpawnLocationListener(@NotNull UltimateSpawnPlugin plugin) {
         this.plugin = plugin;
     }
@@ -28,8 +30,9 @@ public final class SpawnLocationListener implements Listener {
     public void handlePlayerSpawnLocation(PlayerSpawnLocationEvent event) {
         Player player = event.getPlayer();
         try {
-            if(!player.hasPlayedBefore()) {
-                event.setSpawnLocation(player.getWorld().getSpawnLocation());
+            if(!player.hasPlayedBefore() && plugin.getConfigurationService().getConfig().isFirstJoinSpawn()) {
+                if(getLocation() == null) return;
+                event.setSpawnLocation(getLocation());
             }
             else {
                 if (this.plugin.getConfigurationService().getConfig().isJoinAtSpawn()) {
