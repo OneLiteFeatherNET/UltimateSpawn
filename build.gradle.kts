@@ -3,7 +3,7 @@ import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 plugins {
     id("java")
     id("net.minecrell.plugin-yml.paper") version "0.6.0"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     id("xyz.jpenilla.run-paper") version "2.2.3"
 }
 
