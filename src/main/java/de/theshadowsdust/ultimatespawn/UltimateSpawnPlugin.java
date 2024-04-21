@@ -7,13 +7,14 @@ import de.theshadowsdust.ultimatespawn.service.LanguageService;
 import de.theshadowsdust.ultimatespawn.service.SpawnPositionService;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.geysermc.geyser.api.event.EventRegistrar;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.logging.Level;
 
-public final class UltimateSpawnPlugin extends JavaPlugin {
+public final class UltimateSpawnPlugin extends JavaPlugin implements EventRegistrar {
 
     private SpawnPositionService spawnPositionService;
     private LanguageService languageService;
