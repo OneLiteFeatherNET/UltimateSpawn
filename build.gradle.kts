@@ -13,11 +13,12 @@ version = "1.2.0-SNAPSHOT"
 repositories {
     mavenCentral()
     maven("https://papermc.io/repo/repository/maven-public/")
-    maven(url = uri("https://repo.opencollab.dev/main/"))
+    maven("https://repo.opencollab.dev/main/")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("org.geysermc.geyser:api:2.2.0-SNAPSHOT")
     implementation("cloud.commandframework", "cloud-paper", "1.8.4")
     implementation("cloud.commandframework", "cloud-annotations", "1.8.4")
     implementation("cloud.commandframework", "cloud-minecraft-extras", "1.8.4")
