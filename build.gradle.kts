@@ -1,4 +1,5 @@
 import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
+import net.minecrell.pluginyml.paper.PaperPluginDescription
 
 plugins {
     id("java")
@@ -48,13 +49,22 @@ paper {
 
     name = rootProject.name
     author = "theShadowsDust"
-
     main = "de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin"
     hasOpenClassloader = false
 
     generateLibrariesJson = false
     foliaSupported = false
     apiVersion = "1.20"
-    load = BukkitPluginDescription.PluginLoadOrder.POSTWORLD
+    bootstrapDependencies {
+        register("Geyser-Spigot") {
+            required = false
+            load = PaperPluginDescription.RelativeLoadOrder.AFTER
+        }
+    }
+    serverDependencies {
+        register("Geyser-Spigot") {
+            required = false
+        }
+    }
 }
 
