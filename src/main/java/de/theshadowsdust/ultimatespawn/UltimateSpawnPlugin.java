@@ -1,5 +1,6 @@
 package de.theshadowsdust.ultimatespawn;
 
+import de.theshadowsdust.ultimatespawn.listener.BedrockSpawnLocationListener;
 import de.theshadowsdust.ultimatespawn.listener.SpawnLocationListener;
 import de.theshadowsdust.ultimatespawn.service.CommandService;
 import de.theshadowsdust.ultimatespawn.service.ConfigurationService;
@@ -7,14 +8,13 @@ import de.theshadowsdust.ultimatespawn.service.LanguageService;
 import de.theshadowsdust.ultimatespawn.service.SpawnPositionService;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.geysermc.geyser.api.event.EventRegistrar;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.logging.Level;
 
-public final class UltimateSpawnPlugin extends JavaPlugin implements EventRegistrar {
+public final class UltimateSpawnPlugin extends JavaPlugin {
 
     private SpawnPositionService spawnPositionService;
     private LanguageService languageService;
@@ -34,6 +34,9 @@ public final class UltimateSpawnPlugin extends JavaPlugin implements EventRegist
                 pluginManager.disablePlugin(this);
                 return;
             }
+        }
+        if(pluginManager.isPluginEnabled("Geyser-Spigot")) {
+            pluginManager.registerEvents(new BedrockSpawnLocationListener(this), this);
         }
 
         this.configurationService = new ConfigurationService(this);
