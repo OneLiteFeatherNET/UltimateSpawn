@@ -8,11 +8,12 @@ plugins {
 }
 
 group = "de.theshadowsdust"
-version = "1.1.0-RELEASE"
+version = "1.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
     maven("https://papermc.io/repo/repository/maven-public/")
+    maven(url = uri("https://repo.opencollab.dev/main/"))
 }
 
 dependencies {
