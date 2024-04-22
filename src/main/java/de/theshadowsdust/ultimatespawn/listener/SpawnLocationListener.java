@@ -36,7 +36,8 @@ public final class SpawnLocationListener implements Listener {
             }
             else {
                 if (this.plugin.getConfigurationService().getConfig().isJoinAtSpawn()) {
-                   getLocation();
+                   if(getLocation() == null) return;
+                   event.setSpawnLocation(getLocation());
                 }
             }
         } catch (ExecutionException | InterruptedException e) {
