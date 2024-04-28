@@ -62,8 +62,8 @@ public final class BedrockSpawnLocationListener implements Listener {
             }
         }
     }
-        private @Nullable Location getLocation () throws InterruptedException, ExecutionException {
-            SpawnPosition spawnPosition = this.plugin.getSpawnPositionService().getDefaultSpawn().get();
-            return WrappedLocation.toLocation(spawnPosition.getWrappedLocation());
-        }
+    private @Nullable Location getLocation () throws InterruptedException, ExecutionException {
+        SpawnPosition spawnPosition = this.plugin.getSpawnPositionService().getDefaultSpawn().get();
+        return WrappedLocation.toLocation(spawnPosition.getWrappedLocation());
+    }
 }
