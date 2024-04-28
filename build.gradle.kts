@@ -13,6 +13,7 @@ version = "1.1.0-RELEASE"
 repositories {
     mavenCentral()
     maven("https://papermc.io/repo/repository/maven-public/")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
@@ -29,7 +30,7 @@ dependencies {
 tasks {
 
     compileJava {
-        options.release.set(17)
+        options.release.set(21)
         options.encoding = "UTF-8"
     }
 
