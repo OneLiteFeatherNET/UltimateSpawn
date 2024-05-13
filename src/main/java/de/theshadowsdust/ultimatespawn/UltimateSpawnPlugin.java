@@ -1,5 +1,6 @@
 package de.theshadowsdust.ultimatespawn;
 
+import de.theshadowsdust.ultimatespawn.listener.BedrockSpawnLocationListener;
 import de.theshadowsdust.ultimatespawn.listener.SpawnLocationListener;
 import de.theshadowsdust.ultimatespawn.service.CommandService;
 import de.theshadowsdust.ultimatespawn.service.ConfigurationService;
@@ -33,6 +34,9 @@ public final class UltimateSpawnPlugin extends JavaPlugin {
                 pluginManager.disablePlugin(this);
                 return;
             }
+        }
+        if(pluginManager.isPluginEnabled("Geyser-Spigot")) {
+            pluginManager.registerEvents(new BedrockSpawnLocationListener(this), this);
         }
 
         this.configurationService = new ConfigurationService(this);
