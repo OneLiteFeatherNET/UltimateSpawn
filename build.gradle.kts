@@ -1,4 +1,5 @@
 import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
+import net.minecrell.pluginyml.paper.PaperPluginDescription
 
 plugins {
     id("java")
@@ -8,16 +9,19 @@ plugins {
 }
 
 group = "de.theshadowsdust"
-version = "1.2.0"
+version = "1.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://repo.opencollab.dev/main/")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
+    compileOnly("org.geysermc.geyser:api:2.4.0-SNAPSHOT")
+
     implementation("cloud.commandframework", "cloud-paper", "1.8.4")
     implementation("cloud.commandframework", "cloud-annotations", "1.8.4")
     implementation("cloud.commandframework", "cloud-minecraft-extras", "1.8.4")
@@ -47,13 +51,22 @@ paper {
 
     name = rootProject.name
     author = "theShadowsDust"
-
     main = "de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin"
     hasOpenClassloader = false
 
     generateLibrariesJson = false
     foliaSupported = false
     apiVersion = "1.20"
-    load = BukkitPluginDescription.PluginLoadOrder.POSTWORLD
+    bootstrapDependencies {
+        register("Geyser-Spigot") {
+            required = false
+            load = PaperPluginDescription.RelativeLoadOrder.AFTER
+        }
+    }
+    serverDependencies {
+        register("Geyser-Spigot") {
+            required = false
+        }
+    }
 }
 
