@@ -57,6 +57,7 @@ paper {
     generateLibrariesJson = false
     foliaSupported = false
     apiVersion = "1.20"
+    load = BukkitPluginDescription.PluginLoadOrder.POSTWORLD
     bootstrapDependencies {
         register("Geyser-Spigot") {
             required = false
