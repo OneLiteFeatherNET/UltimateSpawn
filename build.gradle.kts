@@ -3,7 +3,7 @@ import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 plugins {
     id("java")
     id("net.minecrell.plugin-yml.paper") version "0.6.0"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.github.goooler.shadow") version "8.1.8"
     id("xyz.jpenilla.run-paper") version "2.2.3"
 }
 
@@ -12,7 +12,7 @@ version = "1.1.0-RELEASE"
 
 repositories {
     mavenCentral()
-    maven("https://papermc.io/repo/repository/maven-public/")
+    maven("https://repo.papermc.io/repo/repository/maven-public/")
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
