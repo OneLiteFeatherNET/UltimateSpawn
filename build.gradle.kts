@@ -4,7 +4,7 @@ import net.minecrell.pluginyml.paper.PaperPluginDescription
 plugins {
     id("java")
     id("net.minecrell.plugin-yml.paper") version "0.6.0"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.github.goooler.shadow") version "8.1.8"
     id("xyz.jpenilla.run-paper") version "2.3.0"
 }
 
@@ -13,13 +13,15 @@ version = "1.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    maven("https://papermc.io/repo/repository/maven-public/")
+    maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     maven("https://repo.opencollab.dev/main/")
 }
 
 dependencies {
-    compileOnly("org.geysermc.geyser:api:2.2.0-SNAPSHOT")
-    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
+    compileOnly("org.geysermc.geyser:api:2.4.0-SNAPSHOT")
+
     implementation("cloud.commandframework", "cloud-paper", "1.8.4")
     implementation("cloud.commandframework", "cloud-annotations", "1.8.4")
     implementation("cloud.commandframework", "cloud-minecraft-extras", "1.8.4")
@@ -37,7 +39,7 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("1.20.4")
+        minecraftVersion("1.20.6")
     }
 
     shadowJar {
@@ -55,6 +57,7 @@ paper {
     generateLibrariesJson = false
     foliaSupported = false
     apiVersion = "1.20"
+    load = BukkitPluginDescription.PluginLoadOrder.POSTWORLD
     bootstrapDependencies {
         register("Geyser-Spigot") {
             required = false
