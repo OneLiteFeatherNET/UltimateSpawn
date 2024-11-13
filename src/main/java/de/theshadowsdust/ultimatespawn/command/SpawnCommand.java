@@ -1,20 +1,20 @@
 package de.theshadowsdust.ultimatespawn.command;
 
-import cloud.commandframework.annotations.Argument;
-import cloud.commandframework.annotations.CommandDescription;
-import cloud.commandframework.annotations.CommandMethod;
-import cloud.commandframework.annotations.CommandPermission;
-import cloud.commandframework.annotations.specifier.Greedy;
-import cloud.commandframework.annotations.suggestions.Suggestions;
-import cloud.commandframework.context.CommandContext;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
 import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
 import de.theshadowsdust.ultimatespawn.service.LanguageService;
-import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
+import org.incendo.cloud.annotation.specifier.Greedy;
+import org.incendo.cloud.annotations.Argument;
+import org.incendo.cloud.annotations.Command;
+import org.incendo.cloud.annotations.CommandDescription;
+import org.incendo.cloud.annotations.Permission;
+import org.incendo.cloud.annotations.suggestion.Suggestions;
+import org.incendo.cloud.context.CommandContext;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public final class SpawnCommand {
         this.languageService = plugin.getLanguageService();
     }
 
-    @CommandMethod("spawn [name]")
-    @CommandPermission("ultimatespawn.command.spawn")
+    @Command("spawn [name]")
+    @Permission("ultimatespawn.command.spawn")
     @CommandDescription("Teleport to the spawn")
     public void executeSpawnCommand(Player player, final @Argument(value = "name", suggestions = "spawn_names") @Greedy String name) {
 
@@ -53,8 +53,16 @@ public final class SpawnCommand {
                 return;
             }
 
-            player.teleport(location);
-            player.sendMessage(this.languageService.getMessage("spawn-teleport-success", this.languageService.getPluginPrefix()));
+            player.teleportAsync(location).thenAccept(success -> {
+                if(Boolean.TRUE.equals(success)) {
+                    player.sendMessage(this.languageService.getMessage("spawn-teleport-success",
+                            this.languageService.getPluginPrefix()));
+                } else {
+                    player.sendMessage(this.languageService.getMessage("spawn-teleport-failure",
+                            this.languageService.getPluginPrefix()));
+                }
+            });
+
         } catch (ExecutionException | InterruptedException e) {
             this.plugin.getLogger().log(Level.SEVERE, "Something went wrong on teleportation", e);
             Thread.currentThread().interrupt();
