@@ -1,18 +1,18 @@
 package de.theshadowsdust.ultimatespawn.command;
 
-import cloud.commandframework.annotations.Argument;
-import cloud.commandframework.annotations.CommandDescription;
-import cloud.commandframework.annotations.CommandMethod;
-import cloud.commandframework.annotations.CommandPermission;
-import cloud.commandframework.annotations.specifier.Greedy;
-import cloud.commandframework.annotations.suggestions.Suggestions;
-import cloud.commandframework.context.CommandContext;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
 import de.theshadowsdust.ultimatespawn.service.LanguageService;
-import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
+import org.incendo.cloud.annotation.specifier.Greedy;
+import org.incendo.cloud.annotations.Argument;
+import org.incendo.cloud.annotations.Command;
+import org.incendo.cloud.annotations.CommandDescription;
+import org.incendo.cloud.annotations.Permission;
+import org.incendo.cloud.annotations.suggestion.Suggestions;
+import org.incendo.cloud.context.CommandContext;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ public final class RemoveSpawnCommand {
         this.languageService = plugin.getLanguageService();
     }
 
-    @CommandMethod("removespawn <name>")
-    @CommandPermission("ultimatespawn.command.removespawn")
+    @Command("removespawn <name>")
+    @Permission("ultimatespawn.command.removespawn")
     @CommandDescription("Remove a spawn position")
     public void execute(Player player,
                         @NotNull

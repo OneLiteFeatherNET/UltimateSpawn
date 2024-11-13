@@ -42,9 +42,6 @@ public final class UltimateSpawnPlugin extends JavaPlugin {
         this.configurationService = new ConfigurationService(this);
         this.languageService = new LanguageService(this);
         this.commandService = new CommandService(this);
-        this.commandService.buildCommandSystem();
-        this.commandService.buildHelpSystem();
-
         this.spawnPositionService = new SpawnPositionService(this);
 
         pluginManager.registerEvents(new SpawnLocationListener(this), this);

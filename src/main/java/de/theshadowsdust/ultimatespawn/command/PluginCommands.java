@@ -1,14 +1,14 @@
 package de.theshadowsdust.ultimatespawn.command;
 
-import cloud.commandframework.annotations.Argument;
-import cloud.commandframework.annotations.CommandDescription;
-import cloud.commandframework.annotations.CommandMethod;
-import cloud.commandframework.annotations.CommandPermission;
-import cloud.commandframework.annotations.specifier.Greedy;
+import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import de.theshadowsdust.ultimatespawn.service.LanguageService;
 import de.theshadowsdust.ultimatespawn.util.MessageUtil;
-import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import org.bukkit.command.CommandSender;
+import org.incendo.cloud.annotation.specifier.Greedy;
+import org.incendo.cloud.annotations.Argument;
+import org.incendo.cloud.annotations.Command;
+import org.incendo.cloud.annotations.CommandDescription;
+import org.incendo.cloud.annotations.Permission;
 import org.jetbrains.annotations.NotNull;
 
 public final class PluginCommands {
@@ -21,8 +21,8 @@ public final class PluginCommands {
         this.languageService = plugin.getLanguageService();
     }
 
-    @CommandMethod("ultimatespawn config")
-    @CommandPermission("ultimatespawn.command.config")
+    @Command("ultimatespawn config")
+    @Permission("ultimatespawn.command.config")
     public void executeMainCommand(CommandSender commandSender) {
 
         String prefix = this.languageService.getPluginPrefix();
@@ -35,8 +35,8 @@ public final class PluginCommands {
         commandSender.sendMessage(MessageUtil.translateLegacyColorCodes("%s &7Respawn at Spawn: &6%s".formatted(prefix, respawnAtSpawn)));
     }
 
-    @CommandMethod("ultimatespawn config reload")
-    @CommandPermission("ultimatespawn.command.reload")
+    @Command("ultimatespawn config reload")
+    @Permission("ultimatespawn.command.reload")
     @CommandDescription("Reload the Plugin")
     public void executeReloadCommand(CommandSender commandSender) {
         this.plugin.getConfigurationService().loadConfig();
@@ -46,9 +46,9 @@ public final class PluginCommands {
                 this.plugin.getName()));
     }
 
+    @Command("ultimatespawn help [query]")
     @CommandDescription("Shows the help menu")
-    @CommandMethod("ultimatespawn help [query]")
-    @CommandPermission("ultimatespawn.command.help")
+    @Permission("ultimatespawn.command.help")
     private void helpCommand(CommandSender sender, final @Argument("query") @Greedy String query) {
         this.plugin.getCommandService().getMinecraftHelp().queryCommands(query == null ? "" : query, sender);
     }
