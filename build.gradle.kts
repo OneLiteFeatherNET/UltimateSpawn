@@ -19,16 +19,11 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
-    compileOnly("org.geysermc.geyser:api:2.4.0-SNAPSHOT")
-
-    implementation("cloud.commandframework", "cloud-paper", "1.8.4")
-    implementation("cloud.commandframework", "cloud-annotations", "1.8.4")
-    implementation("cloud.commandframework", "cloud-minecraft-extras", "1.8.4")
-    implementation("org.apache.commons:commons-lang3:3.20.0")
-    implementation("me.lucko:commodore:2.2") {
-        isTransitive = false
-    }
+    compileOnly(libs.paper)
+    compileOnly(libs.geyser)
+    implementation(libs.adventureBukkit)
+    implementation(libs.bundles.cloud)
+    implementation(libs.apacheCommons)
 }
 
 tasks {
@@ -39,7 +34,8 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("1.20.6")
+        minecraftVersion("1.21.1")
+        jvmArgs("-Dcom.mojang.eula.agree=true")
     }
 
     shadowJar {
