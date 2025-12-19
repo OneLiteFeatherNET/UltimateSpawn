@@ -23,7 +23,7 @@ dependencyResolutionManagement {
             library("paper", "io.papermc.paper", "paper-api").versionRef("paper")
             library("geyser", "org.geysermc.geyser", "api").versionRef("geyser")
 
-            library("cloudPaper", "org.incendo", "cloud-paper").version("2.0.0-beta.10")
+            library("cloudPaper", "org.incendo", "cloud-paper").version("2.0.0-SNAPSHOT")
             library("cloudAnnotations", "org.incendo", "cloud-annotations").version("2.0.0")
             library("cloudExtras", "org.incendo", "cloud-minecraft-extras").version("2.0.0-SNAPSHOT")
 
