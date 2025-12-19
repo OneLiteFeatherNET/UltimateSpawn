@@ -16,7 +16,7 @@ dependencyResolutionManagement {
             version("geyser", "2.4.2-SNAPSHOT")
 
             plugin("pluginYaml", "net.minecrell.plugin-yml.paper").version("0.6.0")
-            plugin("shadow", "com.gradleup.shadow").version("8.3.3")
+            plugin("shadow", "com.gradleup.shadow").version("8.3.9")
             plugin("runServer", "xyz.jpenilla.run-paper").version("2.1.0")
 
             library("adventureBukkit", "net.kyori", "adventure-platform-bukkit").version("4.3.3")
