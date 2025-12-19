@@ -3,6 +3,7 @@ package de.theshadowsdust.ultimatespawn.listener;
 import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
 import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
+import io.papermc.paper.event.player.AsyncPlayerSpawnLocationEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,24 +26,23 @@ public final class BedrockSpawnLocationListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerSpawnLocationEvent event) {
-        Player player = event.getPlayer();
-        if (GeyserApi.api().isBedrockPlayer(event.getPlayer().getUniqueId())) {
+    public void onPlayerJoin(AsyncPlayerSpawnLocationEvent event) {
+        if (GeyserApi.api().isBedrockPlayer(event.getConnection().getProfile().getUniqueId())) {
             try {
-                if(!player.hasPlayedBefore() && plugin.getConfigurationService().getConfig().isFirstJoinSpawn()) {
+                if(event.isNewPlayer() && plugin.getConfigurationService().getConfig().isFirstJoinSpawn()) {
                     if(getLocation() == null) return;
                     event.setSpawnLocation(getLocation());
                 }
                 else {
                     if (this.plugin.getConfigurationService().getConfig().isJoinAtSpawn()) {
-                        getLocation();
+                        if(getLocation() == null) return;
+                        event.setSpawnLocation(getLocation());
                     }
                 }
             } catch (ExecutionException | InterruptedException e) {
                 this.plugin.getLogger().log(Level.SEVERE, "Cannot set spawn location for Bedrock player", e);
                 Thread.currentThread().interrupt();
             }
-            player.teleport(event.getSpawnLocation());
         }
 
     }

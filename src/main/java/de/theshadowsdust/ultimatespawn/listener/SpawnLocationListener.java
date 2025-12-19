@@ -4,6 +4,7 @@ import de.theshadowsdust.ultimatespawn.configuration.Configuration;
 import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
 import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
 import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
+import io.papermc.paper.event.player.AsyncPlayerSpawnLocationEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,10 +28,9 @@ public final class SpawnLocationListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void handlePlayerSpawnLocation(PlayerSpawnLocationEvent event) {
-        Player player = event.getPlayer();
+    public void handlePlayerSpawnLocation(AsyncPlayerSpawnLocationEvent event) {
         try {
-            if(!player.hasPlayedBefore() && plugin.getConfigurationService().getConfig().isFirstJoinSpawn()) {
+            if(event.isNewPlayer() && plugin.getConfigurationService().getConfig().isFirstJoinSpawn()) {
                 if(getLocation() == null) return;
                 event.setSpawnLocation(getLocation());
             }
