@@ -52,6 +52,16 @@ public final class BukkitSenderMapper implements SenderMapper<CommandSourceStack
         public @Nullable Entity getExecutor() {
             return null;
         }
+
+        @Override
+        public CommandSourceStack withLocation(Location location) {
+            return this;
+        }
+
+        @Override
+        public CommandSourceStack withExecutor(Entity executor) {
+            return null;
+        }
     }
 
     private record ConsoleSenderMapper() implements CommandSourceStack {
@@ -70,6 +80,16 @@ public final class BukkitSenderMapper implements SenderMapper<CommandSourceStack
         public @Nullable Entity getExecutor() {
             return null;
         }
+
+        @Override
+        public CommandSourceStack withLocation(Location location) {
+            return this;
+        }
+
+        @Override
+        public CommandSourceStack withExecutor(Entity executor) {
+            return null;
+        }
     }
 
     private record PlayerSenderMapper(Player player) implements CommandSourceStack {
@@ -86,6 +106,16 @@ public final class BukkitSenderMapper implements SenderMapper<CommandSourceStack
         @Override
         public @Nullable Entity getExecutor() {
             return this.player;
+        }
+
+        @Override
+        public CommandSourceStack withLocation(Location location) {
+            return this;
+        }
+
+        @Override
+        public CommandSourceStack withExecutor(Entity executor) {
+            return this;
         }
     }
 }

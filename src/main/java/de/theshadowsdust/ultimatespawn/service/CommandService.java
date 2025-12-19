@@ -50,7 +50,7 @@ public final class CommandService {
         return MinecraftHelp.<CommandSender>builder()
                 .commandManager(paperCommandManager)
                 .audienceProvider(this.bukkitAudiences::sender)
-                .commandPrefix("/essentials")
+                .commandPrefix("/ultimatespawn")
                 .colors(MinecraftHelp.helpColors(
                         NamedTextColor.GOLD,
                         NamedTextColor.GRAY,
