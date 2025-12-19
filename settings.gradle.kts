@@ -19,7 +19,7 @@ dependencyResolutionManagement {
             plugin("shadow", "com.gradleup.shadow").version("8.3.3")
             plugin("runServer", "xyz.jpenilla.run-paper").version("2.1.0")
 
-            library("adventureBukkit", "net.kyori", "adventure-platform-bukkit").version("4.3.3")
+            library("adventureBukkit", "net.kyori", "adventure-platform-bukkit").version("4.4.1")
             library("paper", "io.papermc.paper", "paper-api").versionRef("paper")
             library("geyser", "org.geysermc.geyser", "api").versionRef("geyser")
 
