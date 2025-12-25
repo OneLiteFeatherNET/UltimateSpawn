@@ -54,8 +54,7 @@ public final class LanguageService {
     public void loadMessages() {
         try {
             if (Files.notExists(this.translationDir.toPath())) Files.createDirectory(this.translationDir.toPath());
-            this.defaultMessages = ResourceBundle.getBundle("ultimatespawn_%s".formatted(
-                    this.plugin.getConfigurationService().getConfig().getLanguage()), new UTF8ResourceBundleControl());
+            this.defaultMessages = ResourceBundle.getBundle("ultimatespawn", Locale.forLanguageTag(this.plugin.getConfigurationService().getConfig().getLanguage()), new UTF8ResourceBundleControl());
             this.languageConfiguration = loadLanguageConfig();
         } catch (IOException e) {
             this.plugin.getLogger().log(Level.SEVERE, "Can't load messages", e);

@@ -38,6 +38,7 @@ public final class SpawnCommand {
     public void executeSpawnCommand(Player player, final @Argument(value = "name", suggestions = "spawn_names") @Greedy String name) {
 
         String positionName = name == null ? "spawn" : name;
+        if (positionName.isEmpty()) positionName = "spawn";
 
         try {
             SpawnPosition spawnPosition = this.plugin.getSpawnPositionService().getSpawnPosition(positionName).get();
