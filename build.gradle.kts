@@ -4,7 +4,7 @@ import net.minecrell.pluginyml.paper.PaperPluginDescription
 plugins {
     id("java")
     id("net.minecrell.plugin-yml.paper") version "0.6.0"
-    id("io.github.goooler.shadow") version "8.1.8"
+    id("com.gradleup.shadow").version("9.3.0")
     id("xyz.jpenilla.run-paper") version "3.0.2"
 }
 
@@ -34,7 +34,7 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("1.21.1")
+        minecraftVersion("1.21.10")
         jvmArgs("-Dcom.mojang.eula.agree=true")
     }
 
