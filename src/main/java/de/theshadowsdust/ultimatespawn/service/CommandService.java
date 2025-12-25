@@ -35,7 +35,7 @@ public final class CommandService {
     public PaperCommandManager<CommandSender> buildCommandSystem() {
         return PaperCommandManager
                 .builder(new BukkitSenderMapper())
-                .executionCoordinator(ExecutionCoordinator.asyncCoordinator())
+                .executionCoordinator(ExecutionCoordinator.simpleCoordinator())
                 .buildOnEnable(this.plugin);
     }
 
