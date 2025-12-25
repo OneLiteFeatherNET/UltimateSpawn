@@ -50,7 +50,8 @@ public final class CommandService {
         return MinecraftHelp.<CommandSender>builder()
                 .commandManager(paperCommandManager)
                 .audienceProvider(this.bukkitAudiences::sender)
-                .commandPrefix("/ultimatespawn")
+                // TODO: find out why this clicking and executing command feature has an empty space in chat, might be fault by cloud
+                .commandPrefix("/")
                 .colors(MinecraftHelp.helpColors(
                         NamedTextColor.GOLD,
                         NamedTextColor.GRAY,
