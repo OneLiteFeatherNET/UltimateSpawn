@@ -5,7 +5,7 @@ plugins {
     id("java")
     id("net.minecrell.plugin-yml.paper") version "0.6.0"
     id("com.gradleup.shadow").version("9.4.1")
-    id("xyz.jpenilla.run-paper") version "3.0.2"
+    id("xyz.jpenilla.run-paper") version "3.1.0"
 }
 
 group = "de.theshadowsdust"
