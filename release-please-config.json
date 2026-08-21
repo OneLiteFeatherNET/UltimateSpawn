@@ -6,7 +6,14 @@
   "packages": {
     ".": {
       "package-name": "UltimateSpawn",
-      "changelog-path": "CHANGELOG.md"
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "build.gradle.kts"
+        }
+      ]
     }
-  }
+  },
+  "bootstrap-sha": "b1d0d7e5382bab74880a67f7d63e8dd6c95d5623"
 }
