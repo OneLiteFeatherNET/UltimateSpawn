@@ -11,7 +11,7 @@ dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
 
-            version("paper", "1.21.10-R0.1-SNAPSHOT")
+            version("paper", "26.2.build.121-stable")
             version("apacheCommons", "3.20.0")
             version("geyser", "2.4.2-SNAPSHOT")
 
