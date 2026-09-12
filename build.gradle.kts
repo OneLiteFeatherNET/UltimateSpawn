@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "de.theshadowsdust"
-version = "2.0.0" // x-release-please-version
+version = "2.0.1" // x-release-please-version
 
 repositories {
     mavenCentral()
