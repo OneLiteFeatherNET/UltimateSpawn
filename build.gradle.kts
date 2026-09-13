@@ -6,9 +6,10 @@ plugins {
     id("net.minecrell.plugin-yml.paper") version "0.6.0"
     id("com.gradleup.shadow").version("9.4.1")
     id("xyz.jpenilla.run-paper") version "3.0.2"
+    `maven-publish`
 }
 
-group = "de.theshadowsdust"
+group = "net.onelitefeather"
 version = "2.0.1" // x-release-please-version
 
 repositories {
@@ -39,7 +40,7 @@ tasks {
     }
 
     shadowJar {
-        archiveFileName.set("${rootProject.name}.${archiveExtension.getOrElse("jar")}")
+        archiveFileName.set("${rootProject.name}-${rootProject.version}.${archiveExtension.getOrElse("jar")}")
     }
 }
 
@@ -67,3 +68,68 @@ paper {
     }
 }
 
+publishing {
+    repositories {
+        maven {
+            authentication {
+                credentials(PasswordCredentials::class) {
+                    // Those credentials need to be set under "Settings -> Secrets -> Actions" in your repository
+                    username = System.getenv("ONELITEFEATHER_MAVEN_USERNAME")
+                    password = System.getenv("ONELITEFEATHER_MAVEN_PASSWORD")
+                }
+            }
+            name = "OneLiteFeatherRepository"
+            url = if (project.version.toString().contains("SNAPSHOT")) {
+                uri("https://repo.onelitefeather.dev/onelitefeather-snapshots")
+            } else {
+                uri("https://repo.onelitefeather.dev/onelitefeather-releases")
+            }
+        }
+    }
+    publications {
+        create<MavenPublication>("maven") {
+            artifact(rootProject.tasks.getByName("shadowJar"))
+            version = rootProject.version as String
+            artifactId = "ultimate-spawn"
+            groupId = rootProject.group as String
+            pom {
+                description.set("A simple spawn command plugin")
+                name = "UltimateSpawn"
+                url = "https://github.com/OneLiteFeatherNET/UltimateSpawn"
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        name.set("theShadowsDust")
+                        contributors {
+                            contributor {
+                                name.set("TheMeinerLP")
+                            }
+                            contributor {
+                                name.set("OneLiteFeather")
+                            }
+                            contributor {
+                                name.set("theEvilReaper")
+                            }
+                        }
+                    }
+                }
+
+                issueManagement {
+                    system.set("Github")
+                    url.set("https://github.com/OneLiteFeatherNET/UltimateSpawn/issues")
+                }
+
+                scm {
+                    connection = "scm:git:git://github.com:OneLiteFeatherNET/UltimateSpawn.git"
+                    developerConnection = "scm:git:ssh://git@github.com:OneLiteFeatherNET/UltimateSpawn.git"
+                    url = "https://github.com/OneLiteFeatherNET/UltimateSpawn"
+                }
+            }
+        }
+    }
+}
