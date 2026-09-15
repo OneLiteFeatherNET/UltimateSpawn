@@ -17,7 +17,7 @@ dependencyResolutionManagement {
 
             plugin("pluginYaml", "net.minecrell.plugin-yml.paper").version("0.6.0")
             plugin("shadow", "com.gradleup.shadow").version("9.4.1")
-            plugin("runServer", "xyz.jpenilla.run-paper").version("3.0.2")
+            plugin("runServer", "xyz.jpenilla.run-paper").version("3.1.0")
 
             library("adventureBukkit", "net.kyori", "adventure-platform-bukkit").version("4.4.1")
             library("paper", "io.papermc.paper", "paper-api").versionRef("paper")
