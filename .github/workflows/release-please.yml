@@ -20,7 +20,7 @@ jobs:
   publish:
     needs: release-please
     if: needs.release-please.outputs.release_created == 'true'
-    uses: OneLiteFeatherNET/workflows/.github/workflows/gradle-publish.yml@v2.8.2
+    uses: OneLiteFeatherNET/workflows/.github/workflows/gradle-publish.yml@v2.9.0
     secrets: inherit
   sbom:
     name: Attach SBOM to release
