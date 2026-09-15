@@ -10,5 +10,5 @@ permissions:
 
 jobs:
   close:
-    uses: OneLiteFeatherNET/workflows/.github/workflows/close-invalid-prs.yml@v2.8.1
+    uses: OneLiteFeatherNET/workflows/.github/workflows/close-invalid-prs.yml@v2.8.2
     secrets: inherit
