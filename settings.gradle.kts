@@ -1,12 +1,4 @@
 rootProject.name = "UltimateSpawn"
-
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        maven("https://eldonexus.de/repository/maven-public/")
-    }
-}
-
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
@@ -16,7 +8,7 @@ dependencyResolutionManagement {
             version("geyser", "2.11.2-SNAPSHOT")
 
             plugin("pluginYaml", "net.minecrell.plugin-yml.paper").version("0.6.0")
-            plugin("shadow", "com.gradleup.shadow").version("9.4.1")
+            plugin("shadow", "com.gradleup.shadow").version("9.6.1")
             plugin("runServer", "xyz.jpenilla.run-paper").version("3.0.2")
 
             library("adventureBukkit", "net.kyori", "adventure-platform-bukkit").version("4.4.1")
