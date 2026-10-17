@@ -4,7 +4,7 @@ import net.minecrell.pluginyml.paper.PaperPluginDescription
 plugins {
     id("java")
     id("net.minecrell.plugin-yml.paper") version "0.6.0"
-    id("com.gradleup.shadow").version("9.4.1")
+    id("com.gradleup.shadow").version("9.6.1")
     id("xyz.jpenilla.run-paper") version "3.0.2"
     `maven-publish`
 }
@@ -30,12 +30,12 @@ dependencies {
 tasks {
 
     compileJava {
-        options.release.set(21)
+        options.release.set(25)
         options.encoding = "UTF-8"
     }
 
     runServer {
-        minecraftVersion("1.21.10")
+        minecraftVersion("26.3")
         jvmArgs("-Dcom.mojang.eula.agree=true")
     }
 
@@ -53,7 +53,7 @@ paper {
 
     generateLibrariesJson = false
     foliaSupported = false
-    apiVersion = "1.20"
+    apiVersion = "26.3"
     load = BukkitPluginDescription.PluginLoadOrder.POSTWORLD
     bootstrapDependencies {
         register("Geyser-Spigot") {

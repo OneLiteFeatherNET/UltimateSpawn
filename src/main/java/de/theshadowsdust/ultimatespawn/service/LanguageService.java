@@ -4,7 +4,6 @@ import de.theshadowsdust.ultimatespawn.configuration.LanguageConfiguration;
 import de.theshadowsdust.ultimatespawn.UltimateSpawnPlugin;
 import de.theshadowsdust.ultimatespawn.util.MessageUtil;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.util.UTF8ResourceBundleControl;
 import org.apache.commons.lang3.LocaleUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -54,7 +53,7 @@ public final class LanguageService {
     public void loadMessages() {
         try {
             if (Files.notExists(this.translationDir.toPath())) Files.createDirectory(this.translationDir.toPath());
-            this.defaultMessages = ResourceBundle.getBundle("ultimatespawn", Locale.forLanguageTag(this.plugin.getConfigurationService().getConfig().getLanguage()), new UTF8ResourceBundleControl());
+            this.defaultMessages = ResourceBundle.getBundle("ultimatespawn", Locale.forLanguageTag(this.plugin.getConfigurationService().getConfig().getLanguage()));
             this.languageConfiguration = loadLanguageConfig();
         } catch (IOException e) {
             this.plugin.getLogger().log(Level.SEVERE, "Can't load messages", e);
