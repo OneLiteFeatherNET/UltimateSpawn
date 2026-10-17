@@ -5,14 +5,12 @@ import de.theshadowsdust.ultimatespawn.position.SpawnPosition;
 import de.theshadowsdust.ultimatespawn.position.WrappedLocation;
 import io.papermc.paper.event.player.AsyncPlayerSpawnLocationEvent;
 import org.bukkit.Location;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.geysermc.geyser.api.GeyserApi;
 import org.jetbrains.annotations.Nullable;
-import org.spigotmc.event.player.PlayerSpawnLocationEvent;
 
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;

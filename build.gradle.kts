@@ -30,12 +30,12 @@ dependencies {
 tasks {
 
     compileJava {
-        options.release.set(21)
+        options.release.set(25)
         options.encoding = "UTF-8"
     }
 
     runServer {
-        minecraftVersion("1.21.10")
+        minecraftVersion("26.3")
         jvmArgs("-Dcom.mojang.eula.agree=true")
     }
 
@@ -53,7 +53,7 @@ paper {
 
     generateLibrariesJson = false
     foliaSupported = false
-    apiVersion = "1.20"
+    apiVersion = "26.3"
     load = BukkitPluginDescription.PluginLoadOrder.POSTWORLD
     bootstrapDependencies {
         register("Geyser-Spigot") {

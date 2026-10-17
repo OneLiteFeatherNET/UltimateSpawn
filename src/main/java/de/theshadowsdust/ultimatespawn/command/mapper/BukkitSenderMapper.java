@@ -8,12 +8,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.incendo.cloud.SenderMapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
-@SuppressWarnings("UnstableApiUsage")
 public final class BukkitSenderMapper implements SenderMapper<CommandSourceStack, CommandSender> {
 
     private final ConsoleSenderMapper consoleSenderMapper = new ConsoleSenderMapper();
@@ -50,17 +49,37 @@ public final class BukkitSenderMapper implements SenderMapper<CommandSourceStack
 
         @Override
         public @Nullable Entity getExecutor() {
-            return null;
+            return null; // Block command senders do not have an associated entity.
         }
 
         @Override
-        public CommandSourceStack withLocation(Location location) {
+        public @NonNull Player getPlayerOrThrow() {
+            return getLocation().getNearbyEntitiesByType(Player.class, 16)
+                    .stream()
+                    .filter(player -> player.getLocation().distance(getLocation()) <= 1.0D)
+                    .findFirst()
+                    .orElseThrow();
+        }
+
+        @Override
+        public @NonNull Entity getEntityOrThrow() {
+            return getLocation().getNearbyEntitiesByType(Entity.class, 16)
+                    .stream()
+                    .filter(entity -> entity.getLocation().distance(getLocation()) <= 1.0D)
+                    .findFirst()
+                    .orElseThrow();
+        }
+
+        @Override
+        @NotNull
+        public CommandSourceStack withLocation(@NotNull Location location) {
+            return this; //Not needed for block command senders.
+        }
+
+        @Override
+        @NotNull
+        public CommandSourceStack withExecutor(@NotNull Entity executor) {
             return this;
-        }
-
-        @Override
-        public CommandSourceStack withExecutor(Entity executor) {
-            return null;
         }
     }
 
@@ -82,13 +101,25 @@ public final class BukkitSenderMapper implements SenderMapper<CommandSourceStack
         }
 
         @Override
-        public CommandSourceStack withLocation(Location location) {
-            return this;
+        public @NonNull Player getPlayerOrThrow() {
+            throw new IllegalCallerException("A Console cannot be an Player.");
         }
 
         @Override
-        public CommandSourceStack withExecutor(Entity executor) {
-            return null;
+        public @NonNull Entity getEntityOrThrow() {
+            throw new IllegalCallerException("A Console cannot be an Entity.");
+        }
+
+        @Override
+        @NotNull
+        public CommandSourceStack withLocation(@NotNull Location location) {
+            throw new UnsupportedOperationException("Cannot change location of console sender");
+        }
+
+        @Override
+        @NotNull
+        public CommandSourceStack withExecutor(@NotNull Entity executor) {
+            return this;
         }
     }
 
@@ -109,12 +140,24 @@ public final class BukkitSenderMapper implements SenderMapper<CommandSourceStack
         }
 
         @Override
-        public CommandSourceStack withLocation(Location location) {
+        public @NonNull Player getPlayerOrThrow() {
+            return this.player();
+        }
+
+        @Override
+        public @NonNull Entity getEntityOrThrow() {
+            return this.player();
+        }
+
+        @Override
+        @NotNull
+        public CommandSourceStack withLocation(@NotNull Location location) {
             return this;
         }
 
         @Override
-        public CommandSourceStack withExecutor(Entity executor) {
+        @NotNull
+        public CommandSourceStack withExecutor(@NotNull Entity executor) {
             return this;
         }
     }
