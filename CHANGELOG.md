@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/OneLiteFeatherNET/UltimateSpawn/compare/v2.0.2...v2.0.3) (2026-10-17)
+
+
+### Bug Fixes
+
+* **deps:** Update Paper dependency to 26.3 ([#88](https://github.com/OneLiteFeatherNET/UltimateSpawn/issues/88)) ([16c7194](https://github.com/OneLiteFeatherNET/UltimateSpawn/commit/16c7194186806c8f0b067ca40ec5f27d47aa8dcd))
+
 ## [2.0.2](https://github.com/OneLiteFeatherNET/UltimateSpawn/compare/v2.0.1...v2.0.2) (2026-09-13)
 
 
