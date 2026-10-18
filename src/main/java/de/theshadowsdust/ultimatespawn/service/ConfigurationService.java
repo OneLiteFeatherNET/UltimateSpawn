@@ -82,15 +82,4 @@ public class ConfigurationService {
             this.plugin.getLogger().log(Level.SEVERE, "Cannot save config file", e);
         }
     }
-
-    @NotNull
-    @SuppressWarnings("UnstableApiUsage")
-    private String getPluginVersion() {
-        String version = this.plugin.getPluginMeta().getVersion();
-        String versionSplitter = "-";
-        if (version.contains(versionSplitter)) {
-            version = version.split(versionSplitter)[0];
-        }
-        return version;
-    }
 }
