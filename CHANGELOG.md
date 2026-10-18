@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/OneLiteFeatherNET/UltimateSpawn/compare/v2.0.3...v2.1.0) (2026-10-18)
+
+
+### Features
+
+* **config:** improve config versioning ([#90](https://github.com/OneLiteFeatherNET/UltimateSpawn/issues/90)) ([b5beff5](https://github.com/OneLiteFeatherNET/UltimateSpawn/commit/b5beff5ce2bcbac9845b360399b2c00c35521468))
+
 ## [2.0.3](https://github.com/OneLiteFeatherNET/UltimateSpawn/compare/v2.0.2...v2.0.3) (2026-10-17)
 
 
