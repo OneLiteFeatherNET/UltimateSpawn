@@ -26,7 +26,7 @@ public class ConfigurationService {
 
         this.plugin = plugin;
         this.configFile = new File(plugin.getDataFolder(), "config.json");
-        this.defaultConfig = new Configuration(getPluginVersion());
+        this.defaultConfig = new Configuration(1.0D);
 
         if (Files.notExists(this.configFile.toPath())) {
             try {
@@ -53,7 +53,7 @@ public class ConfigurationService {
 
         try (BufferedReader bufferedReader = Files.newBufferedReader(this.configFile.toPath())) {
             this.configuration = Constants.GSON.fromJson(bufferedReader, Configuration.class);
-            needUpdate = !this.configuration.getPluginVersion().equals(defaultConfig.getPluginVersion());
+            needUpdate = this.configuration.getVersion() < defaultConfig.getVersion();
         } catch (IOException e) {
             this.plugin.getLogger().log(Level.SEVERE, "An error occurred while loading the config file", e);
             this.configuration = defaultConfig;
@@ -81,16 +81,5 @@ public class ConfigurationService {
         } catch (IOException e) {
             this.plugin.getLogger().log(Level.SEVERE, "Cannot save config file", e);
         }
-    }
-
-    @NotNull
-    @SuppressWarnings("UnstableApiUsage")
-    private String getPluginVersion() {
-        String version = this.plugin.getPluginMeta().getVersion();
-        String versionSplitter = "-";
-        if (version.contains(versionSplitter)) {
-            version = version.split(versionSplitter)[0];
-        }
-        return version;
     }
 }

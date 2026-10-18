@@ -11,22 +11,22 @@ public final class Configuration {
     private boolean joinAtSpawn;
     private boolean respawnAtSpawn;
     private boolean firstJoinSpawn;
-    private String pluginVersion;
+    private double version;
 
-    public Configuration(String pluginVersion) {
-        this(Locale.getDefault().toString(), true, true, true, pluginVersion);
+    public Configuration(double version) {
+        this(Locale.getDefault().toString(), true, true, true, 1.0D);
     }
 
     public Configuration(@NotNull String language,
                          boolean joinAtSpawn,
                          boolean respawnAtSpawn,
                          boolean firstJoinSpawn,
-                         @NotNull String pluginVersion) {
+                         double version) {
         this.language = language;
         this.joinAtSpawn = joinAtSpawn;
         this.respawnAtSpawn = respawnAtSpawn;
         this.firstJoinSpawn = firstJoinSpawn;
-        this.pluginVersion = pluginVersion;
+        this.version = version;
     }
 
     @NotNull
@@ -58,36 +58,43 @@ public final class Configuration {
 
     public void setFirstJoinSpawn(boolean firstJoinSpawn) { this.firstJoinSpawn = firstJoinSpawn; }
 
-    @NotNull
-    public String getPluginVersion() {
-        return pluginVersion;
+    public void setVersion(double version) {
+        this.version = version;
     }
 
-    public void setPluginVersion(@NotNull String pluginVersion) {
-        this.pluginVersion = pluginVersion;
+    public double getVersion() {
+        return version;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Configuration that)) return false;
+
+        return joinAtSpawn == that.joinAtSpawn &&
+                respawnAtSpawn == that.respawnAtSpawn &&
+                firstJoinSpawn == that.firstJoinSpawn &&
+                Double.compare(version, that.version) == 0 &&
+                Objects.equals(language, that.language);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(language);
+        result = 31 * result + Boolean.hashCode(joinAtSpawn);
+        result = 31 * result + Boolean.hashCode(respawnAtSpawn);
+        result = 31 * result + Boolean.hashCode(firstJoinSpawn);
+        result = 31 * result + Double.hashCode(version);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Configuration{" +
                 "language='" + language + '\'' +
-                ", overrideSpawnLocation=" + joinAtSpawn +
-                ", overrideRespawnLocation=" + respawnAtSpawn +
-                ", pluginVersion='" + pluginVersion + '\'' +
-                ", firstJoinSpawn='" + firstJoinSpawn + '\'' +
+                ", joinAtSpawn=" + joinAtSpawn +
+                ", respawnAtSpawn=" + respawnAtSpawn +
+                ", firstJoinSpawn=" + firstJoinSpawn +
+                ", version=" + version +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Configuration that = (Configuration) o;
-        return joinAtSpawn == that.joinAtSpawn && respawnAtSpawn == that.respawnAtSpawn && firstJoinSpawn == that.firstJoinSpawn && Objects.equals(language, that.language) && Objects.equals(pluginVersion, that.pluginVersion);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(language, joinAtSpawn, respawnAtSpawn, firstJoinSpawn, pluginVersion);
     }
 }
