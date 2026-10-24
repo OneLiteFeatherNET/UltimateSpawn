@@ -4,7 +4,7 @@ dependencyResolutionManagement {
         create("libs") {
 
             version("paper", "26.3.build.+")
-            version("apacheCommons", "3.20.0")
+            version("apacheCommons", "3.21.0")
             version("geyser", "2.11.2-SNAPSHOT")
 
             plugin("pluginYaml", "net.minecrell.plugin-yml.paper").version("0.6.0")
