@@ -11,7 +11,7 @@ permissions:
 jobs:
   build:
     # Shared org build: Temurin toolchain, 3-OS matrix, tests and coverage.
-    uses: OneLiteFeatherNET/workflows/.github/workflows/gradle-build-pr.yml@v2.8.1
+    uses: OneLiteFeatherNET/workflows/.github/workflows/gradle-build-pr.yml@v2.8.2
     with:
       java-version: "25"
       java-distribution: "temurin"
